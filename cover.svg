@@ -1,0 +1,37 @@
+<svg width="800" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1200" fill="#667eea"/>
+  <rect x="50" y="50" width="700" height="1100" fill="white" rx="20"/>
+  
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#667eea">
+    Idea2Creation
+  </text>
+  
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#666">
+    The Complete Guide to AI Agentic Flows
+  </text>
+  
+  <text x="400" y="420" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#666">
+    with OpenClaw
+  </text>
+  
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#764ba2">
+    Generate Substantial Income from Idea to Creation
+  </text>
+  
+  <text x="400" y="560" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#764ba2">
+    Using Our Special Formula
+  </text>
+  
+  <text x="400" y="700" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">
+    By Poly Mintman
+  </text>
+  
+  <rect x="300" y="800" width="200" height="60" fill="#667eea" rx="10"/>
+  <text x="400" y="840" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white">
+    $99.00
+  </text>
+  
+  <text x="400" y="1100" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">
+    © 2026 Idea2Creation. All Rights Reserved.
+  </text>
+</svg>

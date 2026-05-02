@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea2Creation | The Self Made Money Plan</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1830;
+      --panel: rgba(15, 27, 51, 0.78);
+      --panel-strong: #101c34;
+      --panel-soft: #122341;
+      --text: #f8fbff;
+      --muted: #b2bfd8;
+      --line: rgba(255, 255, 255, 0.09);
+      --primary: #7c3aed;
+      --primary-2: #2563eb;
+      --accent: #10b981;
+      --gold: #f6cf7a;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.24), transparent 28%),
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 45%, #07101d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 84px 0; }
+    .section-tight { padding: 52px 0; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .section-copy {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .brand strong {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .brand span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+      cursor: pointer;
+    }
+    .btn:hover,
+    .btn-secondary:hover { transform: translateY(-2px); }
+    .btn {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 34px rgba(65, 84, 217, 0.32);
+    }
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 56px 0 48px;
+    }
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(246, 207, 122, 0.22);
+      background: rgba(246, 207, 122, 0.08);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2.7rem, 5vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+      max-width: 720px;
+    }
+    .hero p.lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 26px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.16);
+      color: #d8ffef;
+      font-weight: 700;
+    }
+
+    .hero-visual,
+    .glass,
+    .gallery-card,
+    .feature-card,
+    .pricing-card,
+    .faq-item,
+    .guarantee,
+    .closing-box {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-visual {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 4.25;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(7, 17, 31, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+    .hero-overlay strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .hero-overlay p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stats-grid,
+    .gallery,
+    .features-grid,
+    .pricing-grid,
+    .outcome-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
+    .outcome-grid { grid-template-columns: 1.12fr 0.88fr; }
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+
+    .glass,
+    .feature-card,
+    .pricing-card,
+    .closing-box {
+      padding: 26px;
+    }
+    .glass strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+    }
+    .glass p,
+    .feature-card p,
+    .feature-card li,
+    .pricing-card p,
+    .pricing-card li,
+    .closing-box p,
+    .faq-answer,
+    .outcome-list li {
+      color: var(--muted);
+    }
+
+    .gallery-card { overflow: hidden; }
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    .gallery-card .caption {
+      padding: 18px 18px 20px;
+    }
+    .gallery-card .caption strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .feature-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.35rem;
+      background: rgba(124, 58, 237, 0.14);
+      color: #dfcbff;
+      border: 1px solid rgba(223, 203, 255, 0.16);
+    }
+    .feature-card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+    }
+
+    .outcome-panel {
+      padding: 28px;
+    }
+    .outcome-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+    .outcome-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .outcome-list li::before,
+    .pricing-card li::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 10px;
+      font-weight: 800;
+    }
+
+    .pricing-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card.featured {
+      border-color: rgba(246, 207, 122, 0.34);
+      transform: translateY(-8px);
+      background: linear-gradient(180deg, rgba(246, 207, 122, 0.11), rgba(255,255,255,0.03));
+    }
+    .pill {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(124, 58, 237, 0.16);
+      color: #dcc8ff;
+      border: 1px solid rgba(220, 200, 255, 0.16);
+    }
+    .pricing-card.featured .pill {
+      background: rgba(246, 207, 122, 0.12);
+      border-color: rgba(246, 207, 122, 0.2);
+      color: var(--gold);
+    }
+    .pricing-card h3 {
+      font-size: 1.4rem;
+      line-height: 1.15;
+    }
+    .price {
+      font-size: 3.25rem;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+    .price small {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .pricing-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 6px 0 2px;
+    }
+    .pricing-card .btn {
+      margin-top: auto;
+      width: 100%;
+    }
+    .subtle {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .guarantee {
+      padding: 34px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(16,185,129,0.16), rgba(37,99,235,0.16));
+    }
+    .guarantee h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+    .faq-question {
+      width: 100%;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px;
+    }
+    .faq-item.active .faq-answer { display: block; }
+
+    .closing-box {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+    }
+    .closing-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .closing-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      z-index: 120;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+    }
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-size: 1.35rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .stats-grid,
+      .gallery,
+      .features-grid,
+      .pricing-grid,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.featured { transform: none; }
+      .section { padding: 68px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <strong>Idea2Creation</strong>
+        <span>The Self Made Money Plan</span>
+      </a>
+      <a href="#pricing" class="btn">Choose Your Offer</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">Premium digital strategy resource</div>
+          <h1>Build a cleaner, smarter plan for money in the digital era.</h1>
+          <p class="lead">The Self Made Money Plan is a premium front-end offer designed for people who want more than vague motivation. It gives your audience a sharper way to think about AI, digital leverage, online income positioning, and long-term opportunity — without the usual hype-heavy nonsense.</p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn">Get Instant Access</a>
+            <a href="#inside" class="btn-secondary">See What’s Inside</a>
+          </div>
+
+          <div class="trust-strip">
+            <span>🔒 Secure Stripe checkout</span>
+            <span>📘 Premium digital product positioning</span>
+            <span>⚡ Built for immediate action</span>
+          </div>
+
+          <div class="timer">⏰ Current pricing live for <span id="countdown-timer">23:59:59</span></div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="images/selfmademoney-plan-1.png" alt="The Self Made Money Plan hero cover" />
+          <div class="hero-overlay">
+            <strong>A higher-end page with better structure</strong>
+            <p>This version is rebuilt to feel premium: clearer hierarchy, stronger layout, cleaner offer cards, and better visual use of your uploaded artwork.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container stats-grid">
+        <article class="glass">
+          <strong>Clear positioning</strong>
+          <p>This page now sells the idea like a real premium offer instead of reading like a rough draft or generic template.</p>
+        </article>
+        <article class="glass">
+          <strong>Better visual flow</strong>
+          <p>The layout guides the eye from promise, to proof-of-concept, to pricing, to decision — without feeling cluttered.</p>
+        </article>
+        <article class="glass">
+          <strong>Real checkout path</strong>
+          <p>The offer section sends buyers directly to your live Stripe links, so the page is aligned with the actual conversion flow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="inside" class="section">
+      <div class="container">
+        <h2 class="section-title">What this offer is really selling</h2>
+        <p class="section-copy">Not false promises. Not random hustle slogans. This page positions the Self Made Money Plan as a smarter digital framework for people who want clarity, leverage, and direction in a noisy online world.</p>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="icon">🧠</div>
+            <h3>Sharper money thinking</h3>
+            <p>Frame the product as a strategic reset for buyers who want a more intelligent way to think about income, technology, and opportunity.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>Digital-era opportunity</h3>
+            <p>Connect AI, digital products, leverage, and emerging online models into one cohesive offer that feels current and aspirational.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">💳</div>
+            <h3>Simple buying journey</h3>
+            <p>The page now makes the next step obvious: choose the tier, click the button, and complete checkout in Stripe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <h2 class="section-title">The Self Made Money Plan visuals</h2>
+        <p class="section-copy">Your uploaded artwork is now used as part of the actual page design instead of sitting in the folder unused.</p>
+
+        <div class="gallery">
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-1.png" alt="Self Made Money Plan artwork 1" />
+            <div class="caption">
+              <strong>Main cover direction</strong>
+              <p>Used in the hero to establish the premium tone immediately.</p>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-2.png" alt="Self Made Money Plan artwork 2" />
+            <div class="caption">
+              <strong>Supporting premium visual</strong>
+              <p>Helps the product feel more complete and intentionally packaged.</p>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-3.png" alt="Self Made Money Plan artwork 3" />
+            <div class="caption">
+              <strong>Conversion support image</strong>
+              <p>Reinforces the wealth-tech positioning in the lower sections of the page.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container outcome-grid">
+        <div class="glass outcome-panel">
+          <h3>Who this is for</h3>
+          <p>This page is best suited for audiences who are already interested in online business, digital positioning, personal leverage, AI tools, or higher-level wealth thinking — but who need a stronger, more compelling offer presentation.</p>
+          <ul class="outcome-list">
+            <li>People tired of chaotic, low-quality money advice</li>
+            <li>Buyers attracted to premium digital products and clear strategy</li>
+            <li>Audiences interested in AI, crypto, leverage, and modern income frameworks</li>
+            <li>Prospects who want a polished offer that feels worth paying for</li>
+          </ul>
+        </div>
+
+        <div class="glass outcome-panel">
+          <h3>What changed in this redesign</h3>
+          <ul class="outcome-list">
+            <li>More premium hero section</li>
+            <li>Cleaner spacing and typography</li>
+            <li>Better section sequencing</li>
+            <li>More professional pricing presentation</li>
+            <li>Artwork integrated into the layout properly</li>
+            <li>Direct Stripe-first conversion path</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2 class="section-title">Choose the offer that fits the buyer</h2>
+        <p class="section-copy">Each button below goes directly to your live Stripe checkout. The $318 option is positioned as the main offer, with a lower-friction entry tier and a stronger premium tier above it.</p>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <span class="pill">Entry Offer</span>
+            <h3>Quick Start</h3>
+            <div class="price">$27 <small>one-time</small></div>
+            <p>Best for buyers who want an easy first yes without a big commitment barrier.</p>
+            <ul>
+              <li>Low-friction front-end offer</li>
+              <li>Fast Stripe checkout</li>
+              <li>Built to convert colder traffic</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/eVq3cv4on1mk9OK5e65AQ03" target="_blank" rel="noopener noreferrer">Start for $27</a>
+            <div class="subtle">Ideal entry point for first-time buyers.</div>
+          </article>
+
+          <article class="pricing-card featured">
+            <span class="pill">Main Offer</span>
+            <h3>Core Self Made Money Plan</h3>
+            <div class="price">$318 <small>one-time</small></div>
+            <p>This is the central offer tier — positioned for buyers who want the real version, not the smallest taste of it.</p>
+            <ul>
+              <li>Strongest core offer positioning</li>
+              <li>Best balance of value and commitment</li>
+              <li>Designed as the primary checkout target</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer">Choose $318</a>
+            <div class="subtle">Recommended as the primary conversion path.</div>
+          </article>
+
+          <article class="pricing-card">
+            <span class="pill">Premium Tier</span>
+            <h3>Premium Access</h3>
+            <div class="price">$786 <small>one-time</small></div>
+            <p>For higher-intent buyers who respond better to elevated pricing and premium positioning.</p>
+            <ul>
+              <li>Premium buyer psychology</li>
+              <li>Higher-ticket checkout path</li>
+              <li>Works well for warmer, more serious traffic</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/bJeaEXdYX1mk1ie5e65AQ05" target="_blank" rel="noopener noreferrer">Choose $786</a>
+            <div class="subtle">Best for premium-positioned traffic and messaging.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="guarantee">
+          <h3>Keep the risk-reversal. Lose the cheap feel.</h3>
+          <p>This redesign keeps a reassuring trust section without making the page feel like a low-grade template. It supports the sale instead of undermining the premium positioning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Questions a buyer may still have</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question">Is this page now connected to Stripe? <span>+</span></button>
+            <div class="faq-answer">Yes. The pricing buttons now point directly to your live Stripe checkout links for the $27, $318, and $786 offers.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Are the new Self Made Money Plan images included? <span>+</span></button>
+            <div class="faq-answer">Yes. The uploaded artwork is included in the project’s <code>images/</code> folder and used throughout the page layout.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can this page still be edited later? <span>+</span></button>
+            <div class="faq-answer">Absolutely. It remains a simple static HTML page with inline styling and a separate <code>sales_page.js</code> file for lightweight interactions.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Why does the $318 tier stand out more? <span>+</span></button>
+            <div class="faq-answer">Because it is being treated as the main offer tier. That gives the pricing section a stronger decision anchor and makes the page feel more intentional.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="closing-box">
+          <h2>Professional, cleaner, and finally worth reviewing.</h2>
+          <p>This version is a full presentation upgrade — not just a copy tweak. The layout, spacing, pricing, and visual rhythm are all rebuilt to feel like a real premium sales page.</p>
+          <div class="closing-actions">
+            <a href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer" class="btn">Go to Main Offer</a>
+            <a href="#top" class="btn-secondary">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Idea2Creation. All rights reserved.</p>
+      <p style="margin-top: 10px;">Static sales page package prepared with Self Made Money Plan visuals and live Stripe checkout links.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="sales_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .step { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 10; }
+    .text { font-family: Arial, sans-serif; font-size: 14px; fill: #333; }
+    .title { font-size: 16px; font-weight: bold; fill: #2e7d32; }
+    .arrow { stroke: #666; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <rect x="50" y="100" width="100" height="60" class="step"/>
+  <text x="100" y="130" class="text title" text-anchor="middle">Idea</text>
+  <text x="100" y="145" class="text" text-anchor="middle">Generation</text>
+  
+  <rect x="200" y="100" width="100" height="60" class="step"/>
+  <text x="250" y="130" class="text title" text-anchor="middle">Product</text>
+  <text x="250" y="145" class="text" text-anchor="middle">Creation</text>
+  
+  <rect x="350" y="100" width="100" height="60" class="step"/>
+  <text x="400" y="130" class="text title" text-anchor="middle">Sales &</text>
+  <text x="400" y="145" class="text" text-anchor="middle">Marketing</text>
+  
+  <rect x="500" y="100" width="100" height="60" class="step"/>
+  <text x="550" y="130" class="text title" text-anchor="middle">Deployment</text>
+  <text x="550" y="145" class="text" text-anchor="middle">& Scaling</text>
+  
+  <line x1="150" y1="130" x2="200" y2="130" class="arrow"/>
+  <line x1="300" y1="130" x2="350" y2="130" class="arrow"/>
+  <line x1="450" y1="130" x2="500" y2="130" class="arrow"/>
+  
+  <text x="300" y="50" class="text title" text-anchor="middle" font-size="18">
+    Idea2Creation Workflow
+  </text>
+  
+  <text x="300" y="220" class="text" text-anchor="middle" font-size="12" fill="#666">
+    Automated Process from Idea to Income
+  </text>
+</svg>
