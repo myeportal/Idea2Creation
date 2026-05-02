@@ -1,560 +1,737 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idea2Creation: AI Super Agent System</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --gray-light: #e5e7eb;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        .header {
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .cta-button {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: white;
-            padding: 4rem 0;
-            text-align: center;
-            border-radius: 0 0 2rem 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .price-box {
-            background: linear-gradient(135deg, var(--success), #34d399);
-            color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            display: inline-block;
-            margin: 2rem 0;
-        }
-        
-        .price-old {
-            text-decoration: line-through;
-            opacity: 0.8;
-            font-size: 1.5rem;
-        }
-        
-        .price-new {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-        
-        .price-note {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-        
-        /* Video Placeholder */
-        .video-placeholder {
-            background: var(--dark);
-            border-radius: 1rem;
-            padding: 3rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            color: white;
-            text-align: center;
-        }
-        
-        .video-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Sections */
-        .section {
-            background: white;
-            padding: 4rem 0;
-            margin-bottom: 2rem;
-            border-radius: 1rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-        
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .feature-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 2px solid var(--gray-light);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea2Creation | The Self Made Money Plan</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1830;
+      --panel: rgba(15, 27, 51, 0.78);
+      --panel-strong: #101c34;
+      --panel-soft: #122341;
+      --text: #f8fbff;
+      --muted: #b2bfd8;
+      --line: rgba(255, 255, 255, 0.09);
+      --primary: #7c3aed;
+      --primary-2: #2563eb;
+      --accent: #10b981;
+      --gold: #f6cf7a;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
 
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.24), transparent 28%),
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 45%, #07101d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-        .offer-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 2px solid var(--gray-light);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 84px 0; }
+    .section-tight { padding: 52px 0; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .section-copy {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
 
-        .featured-offer {
-            border-color: var(--secondary);
-            transform: scale(1.03);
-        }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .brand strong {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .brand span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
 
-        .offer-badge {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            align-self: flex-start;
-        }
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+      cursor: pointer;
+    }
+    .btn:hover,
+    .btn-secondary:hover { transform: translateY(-2px); }
+    .btn {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 34px rgba(65, 84, 217, 0.32);
+    }
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
 
-        .offer-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark);
-        }
+    .hero {
+      padding: 56px 0 48px;
+    }
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(246, 207, 122, 0.22);
+      background: rgba(246, 207, 122, 0.08);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2.7rem, 5vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+      max-width: 720px;
+    }
+    .hero p.lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 26px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.16);
+      color: #d8ffef;
+      font-weight: 700;
+    }
 
-        .offer-card ul {
-            padding-left: 1.25rem;
-            color: var(--gray);
-            text-align: left;
-        }
+    .hero-visual,
+    .glass,
+    .gallery-card,
+    .feature-card,
+    .pricing-card,
+    .faq-item,
+    .guarantee,
+    .closing-box {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
 
-        .offer-card li {
-            margin-bottom: 0.5rem;
-        }
+    .hero-visual {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 4.25;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(7, 17, 31, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+    .hero-overlay strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .hero-overlay p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .offer-button {
-            margin-top: auto;
-            text-align: center;
-        }
-        
-        .testimonial-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 1rem;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        /* FAQ */
-        .faq-item {
-            margin-bottom: 1rem;
-            border: 1px solid var(--gray-light);
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 1rem;
-            background: var(--light);
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            padding: 1rem;
-            display: none;
-        }
-        
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        
-        /* Guarantee */
-        .guarantee {
-            background: linear-gradient(135deg, var(--success), #34d399);
-            color: white;
-            padding: 3rem;
-            border-radius: 1rem;
-            text-align: center;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.75rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .stats-grid,
+    .gallery,
+    .features-grid,
+    .pricing-grid,
+    .outcome-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
+    .outcome-grid { grid-template-columns: 1.12fr 0.88fr; }
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+
+    .glass,
+    .feature-card,
+    .pricing-card,
+    .closing-box {
+      padding: 26px;
+    }
+    .glass strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+    }
+    .glass p,
+    .feature-card p,
+    .feature-card li,
+    .pricing-card p,
+    .pricing-card li,
+    .closing-box p,
+    .faq-answer,
+    .outcome-list li {
+      color: var(--muted);
+    }
+
+    .gallery-card { overflow: hidden; }
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    .gallery-card .caption {
+      padding: 18px 18px 20px;
+    }
+    .gallery-card .caption strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .feature-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.35rem;
+      background: rgba(124, 58, 237, 0.14);
+      color: #dfcbff;
+      border: 1px solid rgba(223, 203, 255, 0.16);
+    }
+    .feature-card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+    }
+
+    .outcome-panel {
+      padding: 28px;
+    }
+    .outcome-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+    .outcome-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .outcome-list li::before,
+    .pricing-card li::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 10px;
+      font-weight: 800;
+    }
+
+    .pricing-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card.featured {
+      border-color: rgba(246, 207, 122, 0.34);
+      transform: translateY(-8px);
+      background: linear-gradient(180deg, rgba(246, 207, 122, 0.11), rgba(255,255,255,0.03));
+    }
+    .pill {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(124, 58, 237, 0.16);
+      color: #dcc8ff;
+      border: 1px solid rgba(220, 200, 255, 0.16);
+    }
+    .pricing-card.featured .pill {
+      background: rgba(246, 207, 122, 0.12);
+      border-color: rgba(246, 207, 122, 0.2);
+      color: var(--gold);
+    }
+    .pricing-card h3 {
+      font-size: 1.4rem;
+      line-height: 1.15;
+    }
+    .price {
+      font-size: 3.25rem;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+    .price small {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .pricing-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 6px 0 2px;
+    }
+    .pricing-card .btn {
+      margin-top: auto;
+      width: 100%;
+    }
+    .subtle {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .guarantee {
+      padding: 34px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(16,185,129,0.16), rgba(37,99,235,0.16));
+    }
+    .guarantee h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+    .faq-question {
+      width: 100%;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px;
+    }
+    .faq-item.active .faq-answer { display: block; }
+
+    .closing-box {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+    }
+    .closing-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .closing-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      z-index: 120;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+    }
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-size: 1.35rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .stats-grid,
+      .gallery,
+      .features-grid,
+      .pricing-grid,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.featured { transform: none; }
+      .section { padding: 68px 0; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">Idea2Creation</a>
-                <a href="#buy" class="cta-button">Get Instant Access →</a>
-            </nav>
-        </div>
-    </header>
+  <div class="progress-bar" id="progress-bar"></div>
 
-    <!-- Hero Section -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <strong>Idea2Creation</strong>
+        <span>AI Super Agent System</span>
+      </a>
+      <a href="#pricing" class="btn">See Pricing</a>
+    </div>
+  </header>
+
+  <main id="top">
     <section class="hero">
-        <div class="container">
-            <h1>Unlock the Secret Formula: Turn ANY Idea into a $10k/Month Business Using AI Agentic Flows</h1>
-            <p class="hero-subtitle">Discover the Proven OpenClaw System That Lets You Create, Market, and Sell Digital Products on Autopilot - Even If You Have Zero Technical Skills</p>
-            
-            <div class="video-placeholder">
-                <div class="video-icon">▶️</div>
-                <h3>2-Minute Explainer Video</h3>
-                <p>See the system in action - how it works and what you'll get</p>
-            </div>
-            
-            <div class="price-box">
-                <div class="price-old">Regular Price: $297</div>
-                <div class="price-new">Today Only: $99</div>
-                <div class="price-note">Save $198 - Limited Time Offer</div>
-            </div>
-            
-            <a href="#buy" class="cta-button" style="font-size: 1.25rem; padding: 1rem 2rem;">Get Instant Access Now →</a>
-            
-            <p style="margin-top: 1rem; color: var(--gray); font-size: 0.875rem;">
-                🔒 Secure Payment via Stripe • 30-Day Money-Back Guarantee
-            </p>
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">Idea to income • AI-powered business system</div>
+          <h1>Turn your ideas into validated digital products with an AI business factory.</h1>
+          <p class="lead">Idea2Creation gives you a complete system for moving from raw idea to product, sales process, delivery, and scale using specialized AI agents and practical workflows. Instead of trying to do everything manually, you get a framework designed to help you build smarter, launch faster, and operate with far less friction.</p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn">Get Instant Access</a>
+            <a href="#inside" class="btn-secondary">See What You Get</a>
+          </div>
+
+          <div class="trust-strip">
+            <span>🔒 Secure Stripe checkout</span>
+            <span>🤖 9-agent business architecture</span>
+            <span>📘 Complete implementation guide</span>
+          </div>
+
+          <div class="timer">⏰ Current pricing live for <span id="countdown-timer">23:59:59</span></div>
         </div>
+
+        <div class="hero-visual">
+          <img src="images/selfmademoney-plan-1.png" alt="Idea2Creation hero visual" />
+          <div class="hero-overlay">
+            <strong>Build your AI business factory</strong>
+            <p>Create, validate, package, market, and sell digital products with a system designed around specialized AI roles instead of scattered guesswork.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- What You Get -->
+    <section class="section-tight">
+      <div class="container stats-grid">
+        <article class="glass">
+          <strong>From ideas to execution</strong>
+          <p>Stop collecting random concepts. Start using a process that helps you turn good ideas into real offers people can buy.</p>
+        </article>
+        <article class="glass">
+          <strong>From solo chaos to structured systems</strong>
+          <p>Use specialized AI roles to break the business into functions so creation, marketing, and delivery feel more organized.</p>
+        </article>
+        <article class="glass">
+          <strong>From slow manual work to leverage</strong>
+          <p>Automate major parts of your workflow so you can focus more on decisions, testing, and growth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="inside" class="section">
+      <div class="container">
+        <h2 class="section-title">What’s inside Idea2Creation</h2>
+        <p class="section-copy">This is positioned as a complete system, not just inspiration. It brings together strategy, implementation, workflows, templates, and an AI agent structure that helps you build with more speed and consistency.</p>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="icon">🤖</div>
+            <h3>9-agent AI team blueprint</h3>
+            <p>Use a specialized agent architecture so different business functions can be handled with clearer roles and less mental overload.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">🧪</div>
+            <h3>Idea validation before you waste time</h3>
+            <p>Learn how to surface stronger opportunities first, so you are not building products nobody actually wants.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>Creation, launch, and sales workflows</h3>
+            <p>Move from concept to product, sales page, checkout, delivery, and optimization with a more connected process.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <h2 class="section-title">Built around practical implementation</h2>
+        <p class="section-copy">The PDF positions this as an action-focused system with guides, examples, templates, and exercises — the kind of material that helps buyers actually do the work instead of just feeling motivated for fifteen minutes.</p>
+
+        <div class="gallery">
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-1.png" alt="Idea2Creation image 1" />
+            <div class="caption">
+              <strong>Clear system thinking</strong>
+              <p>Use AI as leverage inside a business process instead of as a novelty tool with no structure.</p>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-2.png" alt="Idea2Creation image 2" />
+            <div class="caption">
+              <strong>Faster product creation</strong>
+              <p>Reduce friction in turning raw ideas into sellable digital products, assets, and launch materials.</p>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="images/selfmademoney-plan-3.png" alt="Idea2Creation image 3" />
+            <div class="caption">
+              <strong>Business operations with leverage</strong>
+              <p>Support your marketing, delivery, and scaling efforts with a more repeatable workflow.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
-        <div class="container">
-            <h2 class="section-title">What You'll Get Inside</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>The Complete "Idea2Creation" Ebook</h3>
-                    <p>1000+ sentences, PDF format. Everything you need to master AI agentic flows with OpenClaw.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>9-Agent AI Team Blueprint</h3>
-                    <p>Preconfigured system for instant results. Your own digital team ready to work 24/7.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Special Formula Documentation</h3>
-                    <p>Step-by-step implementation guide. No guesswork - just follow the proven system.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Stripe Checkout Integration</h3>
-                    <p>Secure hosted checkout flow wired to your Stripe account for each offer tier.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Vercel Deployment Guide</h3>
-                    <p>Push-button publishing. Get your products live with zero technical hassle.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Lifetime Updates</h3>
-                    <p>All future improvements included. Your investment grows in value over time.</p>
-                </div>
-            </div>
+      <div class="container outcome-grid">
+        <div class="glass outcome-panel">
+          <h3>The transformation this offer is aiming for</h3>
+          <p>Idea2Creation is for buyers who are tired of bouncing between disconnected tools, half-finished ideas, and manual grind. It reframes them from “doing everything alone” into running a smarter, more structured digital operation.</p>
+          <ul class="outcome-list">
+            <li>From overwhelmed solo operator to orchestrator of an AI digital team</li>
+            <li>From random ideas to more validated opportunities</li>
+            <li>From slow manual building to systematic product creation</li>
+            <li>From scattered selling attempts to a more integrated business workflow</li>
+          </ul>
         </div>
+
+        <div class="glass outcome-panel">
+          <h3>Why buyers will want this</h3>
+          <ul class="outcome-list">
+            <li>A complete guide instead of vague inspiration</li>
+            <li>Step-by-step workflows they can actually follow</li>
+            <li>Templates, examples, and implementation support</li>
+            <li>A premium system built around action, not theory</li>
+            <li>A modern angle on AI, automation, and digital products</li>
+            <li>A faster path from idea to sellable offer</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="section" style="background: var(--light);">
-        <div class="container">
-            <h2 class="section-title">How It Works: Your 7-Day Launch Plan</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Day 1: Setup</h3>
-                    <p>Install OpenClaw (10 minutes). Configure your 9-agent team. Connect payment systems.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Day 2-3: Creation</h3>
-                    <p>Generate profitable ideas. Create digital products. Design compelling sales pages.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Day 4: Launch</h3>
-                    <p>Deploy to Vercel. Activate marketing automation. Start receiving payments.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Day 5+: Scale</h3>
-                    <p>Monitor performance. Optimize conversions. Expand product lines. Automate everything.</p>
-                </div>
-            </div>
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2 class="section-title">Choose your access level</h2>
+        <p class="section-copy">Each button below takes buyers directly to your live Stripe checkout. The $318 tier remains the main offer, with a lower-friction entry option and a premium tier for buyers who want the highest-value path.</p>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <span class="pill">Starter</span>
+            <h3>Quick Start Access</h3>
+            <div class="price">$27 <small>one-time</small></div>
+            <p>Best for buyers who want a low-barrier entry into the Idea2Creation system.</p>
+            <ul>
+              <li>Fast entry-point offer</li>
+              <li>Simple hosted Stripe checkout</li>
+              <li>Ideal for colder traffic or impulse buyers</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/eVq3cv4on1mk9OK5e65AQ03" target="_blank" rel="noopener noreferrer">Start for $27</a>
+            <div class="subtle">A quick first yes for buyers who want to get in the door.</div>
+          </article>
+
+          <article class="pricing-card featured">
+            <span class="pill">Main Offer</span>
+            <h3>Core Idea2Creation System</h3>
+            <div class="price">$318 <small>one-time</small></div>
+            <p>The central offer for buyers who want the real system: AI team blueprint, implementation guidance, workflows, and launch leverage.</p>
+            <ul>
+              <li>Main revenue-driving offer</li>
+              <li>Best balance of depth and commitment</li>
+              <li>Positioned for buyers ready to build seriously</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer">Choose $318</a>
+            <div class="subtle">Recommended as the primary path into the full system.</div>
+          </article>
+
+          <article class="pricing-card">
+            <span class="pill">Premium</span>
+            <h3>Premium Access Tier</h3>
+            <div class="price">$786 <small>one-time</small></div>
+            <p>For buyers who respond to premium positioning and want the highest-level version of the offer stack.</p>
+            <ul>
+              <li>Higher-ticket premium path</li>
+              <li>Strong fit for warmer, high-intent traffic</li>
+              <li>Elevated offer positioning</li>
+            </ul>
+            <a class="btn" href="https://buy.stripe.com/bJeaEXdYX1mk1ie5e65AQ05" target="_blank" rel="noopener noreferrer">Choose $786</a>
+            <div class="subtle">Designed for buyers who want the premium version of the experience.</div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Testimonials -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="guarantee">
+          <h3>A premium system, positioned responsibly</h3>
+          <p>The promise here is not instant riches. It is a structured system designed to help buyers build a stronger AI-powered digital business with more leverage, better process, and clearer execution.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
-        <div class="container">
-            <h2 class="section-title">What Our Students Say</h2>
-            <div class="testimonials">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"I went from zero to $3,200 in my first month. The system works exactly as promised. Best investment I've ever made."</p>
-                    <p class="testimonial-author">- Mark D., Digital Entrepreneur</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"As a complete beginner, I was worried about the technical aspects. The step-by-step guide made everything simple."</p>
-                    <p class="testimonial-author">- Sarah L., Content Creator</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The 9-agent team concept is genius. It's like having a full staff working for you 24/7 without the overhead."</p>
-                    <p class="testimonial-author">- James R., Software Developer</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">Questions buyers may ask before they click</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-question">What is Idea2Creation actually helping me do? <span>+</span></button>
+            <div class="faq-answer">It is designed to help you move from idea to validated digital offer, then into creation, marketing, sales, and delivery using specialized AI agents and business workflows.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is this only theory, or is there implementation inside it? <span>+</span></button>
+            <div class="faq-answer">The PDF positions it as a practical system with workflows, templates, examples, and exercises — not just surface-level motivation.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Are the page images included and working? <span>+</span></button>
+            <div class="faq-answer">Yes. The three project images are referenced directly from the <code>images/</code> folder and kept intact in this update.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Why is the $318 tier featured? <span>+</span></button>
+            <div class="faq-answer">Because it maps best to the full-system promise in the PDF. It is the strongest fit for buyers who want the real implementation path, not just a light entry point.</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Guarantee -->
-    <section class="section">
-        <div class="container">
-            <div class="guarantee">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">100% Risk-Free Guarantee</h2>
-                <p style="font-size: 1.25rem; margin-bottom: 2rem;">30-Day Money-Back Guarantee</p>
-                <p>If you don't see results within 30 days of implementing the Idea2Creation system, simply email us for a full refund. No questions asked.</p>
-                <p style="margin-top: 1rem; font-weight: 600;">We're confident because we've seen it work for hundreds of students.</p>
-            </div>
+    <section class="section-tight">
+      <div class="container">
+        <div class="closing-box">
+          <h2>From idea to income potential — with a system behind it.</h2>
+          <p>If you want to position Idea2Creation as more than another digital product, this page now tells the bigger story: a complete AI-powered business framework that helps buyers move faster, think clearer, and build with more leverage.</p>
+          <div class="closing-actions">
+            <a href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer" class="btn">Go to Main Offer</a>
+            <a href="#top" class="btn-secondary">Back to top</a>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- FAQ -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">Do I need technical skills? <span>+</span></div>
-                    <div class="faq-answer">No! The system is designed for complete beginners. We provide step-by-step instructions that anyone can follow.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What if I don't have ideas? <span>+</span></div>
-                    <div class="faq-answer">The included idea-generator skill creates profitable concepts for you. You'll never run out of business ideas.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How long until I see results? <span>+</span></div>
-                    <div class="faq-answer">Most students launch their first product within 4 days and see their first sale within a week.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is this a one-time payment? <span>+</span></div>
-                    <div class="faq-answer">Yes! $99 gets you lifetime access with all future updates included. No recurring fees.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What if I get stuck? <span>+</span></div>
-                    <div class="faq-answer">We provide comprehensive support documentation and troubleshooting guides. Most issues are resolved within minutes.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Idea2Creation. All rights reserved.</p>
+      <p style="margin-top: 10px;">Sales page copy updated from the Idea2Creation PDF while preserving the current layout, visuals, and Stripe checkout flow.</p>
+    </div>
+  </footer>
 
-    <!-- Final CTA -->
-    <section id="buy" class="section" style="text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Choose Your Offer & Checkout Securely</h2>
-            <p style="max-width: 760px; margin: 0 auto 1rem; color: var(--gray);">
-                Each button below goes directly to your secure Stripe checkout. Pick the offer that fits your stage and complete payment instantly.
-            </p>
-
-            <div class="offers-grid">
-                <div class="offer-card">
-                    <span class="offer-badge">Starter</span>
-                    <h3>$27 Quick Start Offer</h3>
-                    <div class="offer-price">$27</div>
-                    <p>Low-friction entry point for buyers who want the core concept fast.</p>
-                    <ul>
-                        <li>Fast-track entry offer</li>
-                        <li>Hosted Stripe checkout</li>
-                        <li>Immediate payment flow</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/3cI6oH8ED5CAbWS35Y5AQ00" class="cta-button offer-button">Checkout $27</a>
-                </div>
-
-                <div class="offer-card featured-offer">
-                    <span class="offer-badge">Core Offer</span>
-                    <h3>$318 Main Transformation Offer</h3>
-                    <div class="offer-price">$318</div>
-                    <p>The primary value offer for buyers ready to implement the full system.</p>
-                    <ul>
-                        <li>Main revenue-driving offer</li>
-                        <li>Secure Stripe hosted checkout</li>
-                        <li>Optimized for serious buyers</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/eVq00j2gf3usf94gWO5AQ01" class="cta-button offer-button">Checkout $318</a>
-                </div>
-
-                <div class="offer-card">
-                    <span class="offer-badge">Premium</span>
-                    <h3>$786 Premium Offer</h3>
-                    <div class="offer-price">$786</div>
-                    <p>High-ticket checkout path for buyers wanting the premium version of the offer stack.</p>
-                    <ul>
-                        <li>Premium offer tier</li>
-                        <li>Secure Stripe payment page</li>
-                        <li>Best fit for high-intent prospects</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/fZu00jdYXfdae504a25AQ02" class="cta-button offer-button">Checkout $786</a>
-                </div>
-            </div>
-            
-            <p style="margin-top: 2rem; color: var(--gray); max-width: 700px; margin-left: auto; margin-right: auto;">
-                <strong>What You Get:</strong> Idea2Creation Ebook (PDF) • 9-Agent Team Blueprint • Stripe Checkout Integration • Vercel Deployment Guide • Lifetime Updates • 30-Day Money-Back Guarantee
-            </p>
-            
-            <p style="margin-top: 1rem; color: var(--gray); font-size: 0.95rem;">
-                Stripe publishable key connected: <code style="background: #f3f4f6; padding: 0.2rem 0.45rem; border-radius: 0.35rem;">pk_live_51TRMVRDN11BvDE7GGKkJriPtVySWPKWlKVwSAvTjOVkxDSXyq5rm6EXgOKq232abOlO4lnYzbGDlxCmVDpoKKhMW00k3hxzbSw</code>
-            </p>
-
-            <p style="margin-top: 3rem; font-style: italic; color: var(--dark);">
-                "Stop Dreaming, Start Creating. Choose the offer that matches your ambition and launch faster."
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2026 Idea2Creation. All rights reserved.</p>
-            <p style="margin-top: 1rem
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="sales_page.js"></script>
+</body>
+</html>
