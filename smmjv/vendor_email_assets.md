@@ -1,18 +1,18 @@
-# Agentic Dominance — Vendor Email Assets
+# The Selfmademoney Plan — Vendor Email Assets
 
 ## 1) Affiliate approval script
 Use this when approving affiliates manually inside JVZoo or via email.
 
 ### Short approval reply
-Subject: Approved to promote Agentic Dominance
+Subject: Approved to promote The Selfmademoney Plan
 
 Hey [[AFFILIATE_NAME]],
 
-You’re approved to promote **Agentic Dominance**.
+You’re approved to promote **The Selfmademoney Plan**.
 
 Here’s what I’d focus on:
-- $318 Complete System
-- $786 Empire Annual backend
+- $318 The Selfmademoney Plan Complete System
+- $786 The Selfmademoney Plan Empire Annual backend
 - strongest angle: AI + digital product creation + monetization
 
 Your affiliate links:
@@ -31,7 +31,7 @@ If you want custom positioning for your list, reply and I’ll help you tailor i
 ---
 
 ### Slightly warmer approval version
-Subject: You’re approved for Agentic Dominance
+Subject: You’re approved for The Selfmademoney Plan
 
 Hey [[AFFILIATE_NAME]],
 
@@ -44,7 +44,7 @@ That angle has been landing much better.
 
 Quick links:
 - Main offer: [[JVZOO_318_LINK]]
-- Empire annual: [[JVZOO_786_LINK]]
+- The Selfmademoney Plan Empire annual: [[JVZOO_786_LINK]]
 - JV page: [[JV_PAGE_LINK]]
 - bonus page: [[BONUS_PAGE_LINK]]
 - contest: [[CONTEST_DETAILS]]
@@ -64,13 +64,13 @@ Hey [[AFFILIATE_NAME]],
 
 I’m opening up a new launch and thought of you.
 
-It’s called **Agentic Dominance**.
+It’s called **The Selfmademoney Plan**.
 
 The angle is strong:
 - AI-powered digital product creation
 - monetization / launch system framing
-- $318 Complete System
-- $786 Empire Annual backend
+- $318 The Selfmademoney Plan Complete System
+- $786 The Selfmademoney Plan Empire Annual backend
 - 50% commissions on both
 
 That means:
@@ -97,7 +97,7 @@ Subject: AI launch with $159 / $393 commission potential
 
 Hey [[AFFILIATE_NAME]],
 
-I’m inviting a few affiliates to promote **Agentic Dominance**.
+I’m inviting a few affiliates to promote **The Selfmademoney Plan**.
 
 Quick breakdown:
 - $318 core offer

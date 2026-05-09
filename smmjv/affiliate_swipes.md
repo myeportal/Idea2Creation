@@ -1,11 +1,11 @@
-# Agentic Dominance — Affiliate Swipes
+# The Selfmademoney Plan — Affiliate Swipes
 
 ## Core hook
 Turn raw ideas into launch-ready digital products fast using a 10-agent AI workflow.
 
 ## Offer highlights
-- $318 Complete System
-- $786 Empire DFY Annual
+- $318 The Selfmademoney Plan Complete System
+- $786 The Selfmademoney Plan Empire DFY Annual
 - 50% commission on both core monetization offers
 - AI + digital products + monetization + backend value
 - strong leaderboard / contest launch potential
@@ -31,11 +31,11 @@ Turn raw ideas into launch-ready digital products fast using a 10-agent AI workf
 
 If your audience is tired of AI tools that just give them more stuff to learn, this is worth a look.
 
-Agentic Dominance is positioned around a simple promise:
+The Selfmademoney Plan is positioned around a simple promise:
 
 **Use a 10-agent AI workflow to turn ideas into launch-ready digital products fast.**
 
-The main offer is the **$318 Complete System**, and there’s also a **$786 Empire annual** tier for buyers who want the higher-touch implementation path.
+The main offer is the **$318 The Selfmademoney Plan Complete System**, and there’s also a **$786 The Selfmademoney Plan Empire Annual** tier for buyers who want the higher-touch implementation path.
 
 What I like is that this isn’t being sold as “just another AI app.”
 It’s being sold as a monetization system for creators, marketers, consultants, and product builders.
@@ -53,7 +53,7 @@ A lot of AI offers are cheap, noisy, and hard to monetize as an affiliate.
 
 This one has a better story.
 
-**Agentic Dominance** is built around using specialized AI agents to help create:
+**The Selfmademoney Plan** is built around using specialized AI agents to help create:
 - ebooks
 - launch emails
 - sales pages
@@ -80,7 +80,7 @@ Most AI launches are still selling features.
 
 This one is selling **leverage**.
 
-Agentic Dominance is positioned for people who want to build digital products faster, create launch assets quicker, and turn AI into something that actually leads to revenue.
+The Selfmademoney Plan is positioned for people who want to build digital products faster, create launch assets quicker, and turn AI into something that actually leads to revenue.
 
 That’s why I think the economics are interesting here:
 - **50% on $318**
@@ -99,7 +99,7 @@ If your list likes AI, product creation, marketing systems, or agency-style mone
 
 Quick heads up on an AI launch that looks more interesting than the usual low-ticket noise.
 
-**Agentic Dominance** is built around helping buyers create and launch digital products faster using a 10-agent AI workflow.
+**The Selfmademoney Plan** is built around helping buyers create and launch digital products faster using a 10-agent AI workflow.
 
 The reason affiliates should care:
 - **$318 core offer**

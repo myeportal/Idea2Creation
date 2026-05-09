@@ -1,4 +1,4 @@
-# Agentic Dominance JV Launch Notes
+# The Selfmademoney Plan JV Launch Notes
 
 ## Positioning strategy
 The strongest lane for this launch is:
@@ -18,7 +18,7 @@ That is more compelling than just saying “AI agents” or “automation.”
 1. Build digital products faster
 2. Launch with less friction
 3. Turn AI into something monetizable
-4. Upgrade serious buyers into the higher-value Empire annual tier
+4. Upgrade serious buyers into the higher-value The Selfmademoney Plan Empire annual tier
 
 ## Suggested placeholders to finalize
 - Add real JVZoo affiliate links for $318 and $786

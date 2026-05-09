@@ -1,6 +1,6 @@
-# ADJV
+# SMMJV
 
-Affiliate launch package for **Agentic Dominance** tailored for **JVZoo** promotion.
+Affiliate launch package for **The Selfmademoney Plan** tailored for **JVZoo** promotion.
 
 ## Included
 - `index.html` — contest-style partner-facing JV page website
@@ -11,12 +11,12 @@ Affiliate launch package for **Agentic Dominance** tailored for **JVZoo** promot
 - `vendor_email_assets.md` — affiliate approval and JV invite email templates
 - `launch_package_notes.md` — launch strategy, positioning, placeholders, and suggested setup notes
 - `PACKAGE_CHECKLIST.md` — final prep / handoff checklist
-- `assets/` — reused imagery from the main Agentic Dominance offer
+- `assets/` — reused imagery from the main Selfmademoney Plan offer
 
 ## Core Commission Positioning
 This package is built around:
-- **50% commission on the $318 Complete System**
-- **50% commission on the $786 Empire Annual**
+- **50% commission on the $318 The Selfmademoney Plan Complete System**
+- **50% commission on the $786 The Selfmademoney Plan Empire Annual**
 
 ## Before Publishing
 Replace placeholders in the HTML/markdown files:

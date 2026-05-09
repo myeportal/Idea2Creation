@@ -1,4 +1,4 @@
-# ADJV Package Checklist
+# SMMJV Package Checklist
 
 ## Pages
 - `index.html` — main contest-style JV page
@@ -32,7 +32,7 @@
 - `[[BONUS_DELIVERY_WINDOW]]`
 
 ## Suggested Zip Delivery
-- `ADJV-launch-package.zip`
+- `SMMJV-launch-package.zip`
 
 ## Notes
 This package is designed so you can:
