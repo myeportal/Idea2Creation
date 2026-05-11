@@ -479,6 +479,41 @@
       .pricing-card.featured { transform: none; }
       .section { padding: 68px 0; }
     }
+
+    @media (max-width: 640px) {
+      .container { width: min(var(--max), calc(100% - 20px)); }
+      .nav { padding: 14px 0; }
+      .brand strong { font-size: 0.95rem; }
+      .brand span { font-size: 0.8rem; }
+      .btn,
+      .btn-secondary { padding: 13px 18px; }
+      .hero { padding: 34px 0 34px; }
+      .hero-visual {
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-visual img {
+        aspect-ratio: 4 / 3.7;
+      }
+      .hero-overlay {
+        position: relative;
+        inset: auto;
+        margin: 0;
+        border-radius: 0 0 22px 22px;
+      }
+      .trust-strip { gap: 10px; font-size: 0.88rem; }
+      .glass,
+      .feature-card,
+      .pricing-card,
+      .closing-box,
+      .guarantee { padding: 22px; }
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 48px;
+        height: 48px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -693,6 +728,10 @@
           <div class="faq-item">
             <button class="faq-question">Is this page now connected to Stripe? <span>+</span></button>
             <div class="faq-answer">Yes. The pricing buttons now point directly to your live Stripe checkout links for the $27, $318, and $786 offers.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Where do buyers download the PDF after purchase? <span>+</span></button>
+            <div class="faq-answer">The site includes a local thank-you/download page at <code>thank-you.html</code> with a direct link to <code>Idea2Creation.pdf</code>. Stripe should be set to redirect successful buyers there after checkout.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Are the new Self Made Money Plan images included? <span>+</span></button>
