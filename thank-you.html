@@ -151,11 +151,11 @@
     <div class="grid">
       <section class="panel">
         <h2>Download your PDF</h2>
-        <p>Use the button below to download the current Idea2Creation PDF package.</p>
+        <p>Use the verified download button below after a successful payment. This file is no longer exposed as a public direct link.</p>
         <div class="actions">
-          <a class="btn" href="./Idea2Creation.pdf" download>Download Idea2Creation PDF</a>
+          <a class="btn" id="download-btn" href="#download-pending">Download The Self Made Money Plan PDF</a>
         </div>
-        <p class="download-note">File: <strong>Idea2Creation.pdf</strong></p>
+        <p class="download-note" id="download-note">Waiting for verified checkout session...</p>
       </section>
 
       <section class="panel">
@@ -172,7 +172,25 @@
       <a class="btn btn-secondary" href="./index.html">Back to sales page</a>
     </div>
 
-    <p class="subtle">Important: for fully automatic post-purchase delivery, Stripe Payment Links should be configured in Stripe to redirect buyers here after successful checkout.</p>
+    <p class="subtle">This page expects a successful Stripe checkout redirect with a session ID. If someone lands here without a verified payment session, the PDF download will stay locked.</p>
   </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    const product = params.get('product') || 'blueprint';
+    const downloadBtn = document.getElementById('download-btn');
+    const downloadNote = document.getElementById('download-note');
+
+    if (sessionId) {
+      downloadBtn.href = `/api/download-product?session_id=${encodeURIComponent(sessionId)}&product=${encodeURIComponent(product)}`;
+      downloadNote.textContent = 'Verified checkout detected. Your secure download link is ready.';
+    } else {
+      downloadBtn.setAttribute('aria-disabled', 'true');
+      downloadBtn.style.opacity = '0.55';
+      downloadBtn.style.pointerEvents = 'none';
+      downloadNote.textContent = 'No verified checkout session found. Please use the post-purchase redirect from Stripe.';
+    }
+  </script>
 </body>
 </html>

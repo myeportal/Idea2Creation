@@ -573,7 +573,7 @@
         </article>
         <article class="glass">
           <strong>Real checkout path</strong>
-          <p>The offer section sends buyers directly to your live Stripe links, so the page is aligned with the actual conversion flow.</p>
+          <p>The offer section sends buyers into your secure server-side Stripe checkout flow, so payment and delivery stay aligned with the actual conversion path.</p>
         </article>
       </div>
     </section>
@@ -655,7 +655,7 @@
             <li>Better section sequencing</li>
             <li>More professional pricing presentation</li>
             <li>Artwork integrated into the layout properly</li>
-            <li>Direct Stripe-first conversion path</li>
+            <li>Secure Stripe-first conversion path</li>
           </ul>
         </div>
       </div>
@@ -664,7 +664,7 @@
     <section id="pricing" class="section">
       <div class="container">
         <h2 class="section-title">Choose the offer that fits the buyer</h2>
-        <p class="section-copy">Each button below goes directly to your live Stripe checkout. The $318 option is positioned as the main offer, with a lower-friction entry tier and a stronger premium tier above it.</p>
+        <p class="section-copy">Each button below starts a secure Stripe checkout session through your server. That keeps the payment flow aligned with verified post-purchase delivery instead of exposing a public file link. The $318 option is positioned as the main offer, with a lower-friction entry tier and a stronger premium tier above it.</p>
 
         <div class="pricing-grid">
           <article class="pricing-card">
@@ -677,7 +677,7 @@
               <li>Fast Stripe checkout</li>
               <li>Built to convert colder traffic</li>
             </ul>
-            <a class="btn" href="https://buy.stripe.com/eVq3cv4on1mk9OK5e65AQ03" target="_blank" rel="noopener noreferrer">Start for $27</a>
+            <a class="btn" href="/api/create-checkout-session?product=blueprint">Start for $27</a>
             <div class="subtle">Ideal entry point for first-time buyers.</div>
           </article>
 
@@ -691,7 +691,7 @@
               <li>Best balance of value and commitment</li>
               <li>Designed as the primary checkout target</li>
             </ul>
-            <a class="btn" href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer">Choose $318</a>
+            <a class="btn" href="/api/create-checkout-session?product=complete-system">Choose $318</a>
             <div class="subtle">Recommended as the primary conversion path.</div>
           </article>
 
@@ -705,7 +705,7 @@
               <li>Higher-ticket checkout path</li>
               <li>Works well for warmer, more serious traffic</li>
             </ul>
-            <a class="btn" href="https://buy.stripe.com/bJeaEXdYX1mk1ie5e65AQ05" target="_blank" rel="noopener noreferrer">Choose $786</a>
+            <a class="btn" href="/api/create-checkout-session?product=empire">Choose $786</a>
             <div class="subtle">Best for premium-positioned traffic and messaging.</div>
           </article>
         </div>
@@ -727,15 +727,15 @@
         <div class="faq">
           <div class="faq-item">
             <button class="faq-question">Is this page now connected to Stripe? <span>+</span></button>
-            <div class="faq-answer">Yes. The pricing buttons now point directly to your live Stripe checkout links for the $27, $318, and $786 offers.</div>
+            <div class="faq-answer">Yes. The pricing buttons now start secure Stripe checkout sessions for the $27, $318, and $786 offers through your server-side route.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Where do buyers download the PDF after purchase? <span>+</span></button>
-            <div class="faq-answer">The site includes a local thank-you/download page at <code>thank-you.html</code> with a direct link to <code>Idea2Creation.pdf</code>. Stripe should be set to redirect successful buyers there after checkout.</div>
+            <div class="faq-answer">The site includes a local thank-you/download page at <code>thank-you.html</code> that expects a verified Stripe session ID and then unlocks a secure server-side download route for the PDF.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Are the new Self Made Money Plan images included? <span>+</span></button>
-            <div class="faq-answer">Yes. The uploaded artwork is included in the project’s <code>images/</code> folder and used throughout the page layout.</div>
+            <div class="faq-answer">Yes. The uploaded artwork is included as local PNG files in the project and used throughout the page layout.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Can this page still be edited later? <span>+</span></button>
@@ -755,7 +755,7 @@
           <h2>Professional, cleaner, and finally worth reviewing.</h2>
           <p>This version is a full presentation upgrade — not just a copy tweak. The layout, spacing, pricing, and visual rhythm are all rebuilt to feel like a real premium sales page.</p>
           <div class="closing-actions">
-            <a href="https://buy.stripe.com/00w00jg757KIe508qi5AQ04" target="_blank" rel="noopener noreferrer" class="btn">Go to Main Offer</a>
+            <a href="/api/create-checkout-session?product=complete-system" class="btn">Go to Main Offer</a>
             <a href="#top" class="btn-secondary">Back to top</a>
           </div>
         </div>
@@ -766,7 +766,7 @@
   <footer class="footer">
     <div class="container">
       <p>© 2026 Idea2Creation. All rights reserved.</p>
-      <p style="margin-top: 10px;">Static sales page package prepared with Self Made Money Plan visuals and live Stripe checkout links.</p>
+      <p style="margin-top: 10px;">Static sales page package prepared with Self Made Money Plan visuals and a secure Stripe checkout flow.</p>
     </div>
   </footer>
 

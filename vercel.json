@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/download-product.js": {
+      "includeFiles": "Idea2Creation.pdf"
+    }
+  },
+  "routes": [
+    {
+      "src": "/Idea2Creation\\.pdf",
+      "status": 404
+    }
+  ]
+}
