@@ -231,32 +231,79 @@ def generate_visual(slot: Dict[str, Any], out_path: Path) -> None:
 
     grad = cairo.LinearGradient(0, 0, width, height)
     grad.add_color_stop_rgb(0, *bg1)
-    grad.add_color_stop_rgb(1, *bg2)
+    grad.add_color_stop_rgb(0.55, *bg2)
+    grad.add_color_stop_rgb(1, bg1[0] * 0.9, bg1[1] * 0.9, bg1[2] * 1.1)
     ctx.rectangle(0, 0, width, height)
     ctx.set_source(grad)
     ctx.fill()
 
-    ctx.set_line_width(1.5)
-    ctx.set_source_rgba(1, 1, 1, 0.06)
-    for x in range(0, width, 80):
+    glow = cairo.RadialGradient(width * 0.18, height * 0.2, 60, width * 0.18, height * 0.2, 520)
+    glow.add_color_stop_rgba(0, 1, 1, 1, 0.18)
+    glow.add_color_stop_rgba(1, 1, 1, 1, 0)
+    ctx.set_source(glow)
+    ctx.paint()
+
+    ctx.set_line_width(1.2)
+    ctx.set_source_rgba(1, 1, 1, 0.05)
+    for x in range(0, width, 96):
         ctx.move_to(x, 0)
         ctx.line_to(x, height)
-    for y in range(0, height, 80):
+    for y in range(0, height, 96):
         ctx.move_to(0, y)
         ctx.line_to(width, y)
     ctx.stroke()
 
-    for n in range(10):
-        radius = 40 + n * 22
-        ctx.arc(width * 0.84, height * 0.22, radius, 0, 2 * math.pi)
-        ctx.set_source_rgba(accent[0], accent[1], accent[2], max(0.02, 0.10 - n * 0.008))
+    for n in range(9):
+        radius = 54 + n * 22
+        ctx.arc(width * 0.83, height * 0.24, radius, 0, 2 * math.pi)
+        ctx.set_source_rgba(accent[0], accent[1], accent[2], max(0.02, 0.12 - n * 0.01))
+        ctx.set_line_width(2.5)
+        ctx.stroke()
+
+    # premium book/device composition on the right
+    ctx.save()
+    ctx.translate(1160, 235)
+    ctx.rotate(-0.12)
+    rounded_rect(ctx, -120, -130, 290, 390, 24)
+    ctx.set_source_rgba(0, 0, 0, 0.22)
+    ctx.fill()
+    rounded_rect(ctx, -145, -155, 290, 390, 24)
+    device = cairo.LinearGradient(-145, -155, 145, 235)
+    device.add_color_stop_rgb(0, 0.97, 0.98, 1)
+    device.add_color_stop_rgb(1, 0.86, 0.9, 0.98)
+    ctx.set_source(device)
+    ctx.fill_preserve()
+    ctx.set_source_rgba(1, 1, 1, 0.4)
+    ctx.set_line_width(2)
+    ctx.stroke()
+    rounded_rect(ctx, -118, -128, 236, 336, 18)
+    screen = cairo.LinearGradient(-118, -128, 118, 208)
+    screen.add_color_stop_rgb(0, bg1[0] * 1.1, bg1[1] * 1.05, bg1[2] * 1.2)
+    screen.add_color_stop_rgb(1, accent[0] * 0.95, accent[1] * 0.95, accent[2] * 0.95)
+    ctx.set_source(screen)
+    ctx.fill()
+    ctx.restore()
+
+    # AI nodes on the device screen zone
+    nodes = [(1110, 208), (1238, 178), (1368, 228), (1196, 330), (1340, 372)]
+    ctx.set_source_rgba(1, 1, 1, 0.2)
+    ctx.set_line_width(2)
+    for a, b in zip(nodes, nodes[1:]):
+        ctx.move_to(*a)
+        ctx.line_to(*b)
+    ctx.stroke()
+    for x, y in nodes:
+        ctx.arc(x, y, 11, 0, 2 * math.pi)
+        ctx.set_source_rgb(*gold)
+        ctx.fill_preserve()
+        ctx.set_source_rgba(1, 1, 1, 0.75)
         ctx.set_line_width(3)
         ctx.stroke()
 
-    # Abstract process rail
-    rail_y = 700
-    points = [(180, rail_y), (450, rail_y - 70), (760, rail_y - 10), (1080, rail_y - 90), (1360, rail_y - 20)]
-    ctx.set_source_rgba(1, 1, 1, 0.22)
+    # Growth rail along the bottom
+    rail_y = 710
+    points = [(170, rail_y), (410, rail_y - 84), (700, rail_y - 18), (985, rail_y - 102), (1290, rail_y - 38)]
+    ctx.set_source_rgba(1, 1, 1, 0.18)
     ctx.set_line_width(6)
     for a, b in zip(points, points[1:]):
         ctx.move_to(*a)
@@ -266,7 +313,7 @@ def generate_visual(slot: Dict[str, Any], out_path: Path) -> None:
         ctx.arc(px, py, 18, 0, 2 * math.pi)
         ctx.set_source_rgb(*gold)
         ctx.fill_preserve()
-        ctx.set_source_rgba(1, 1, 1, 0.85)
+        ctx.set_source_rgba(1, 1, 1, 0.82)
         ctx.set_line_width(4)
         ctx.stroke()
         ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
@@ -277,82 +324,89 @@ def generate_visual(slot: Dict[str, Any], out_path: Path) -> None:
         ctx.move_to(px - ext.width / 2 - ext.x_bearing, py + ext.height / 2)
         ctx.show_text(label)
 
-    rounded_rect(ctx, 90, 90, 980, 470, 30)
-    card_grad = cairo.LinearGradient(90, 90, 1070, 560)
-    card_grad.add_color_stop_rgba(0, 1, 1, 1, 0.08)
-    card_grad.add_color_stop_rgba(1, 1, 1, 1, 0.03)
+    # Main narrative card
+    rounded_rect(ctx, 82, 82, 952, 500, 30)
+    card_grad = cairo.LinearGradient(82, 82, 1034, 582)
+    card_grad.add_color_stop_rgba(0, 1, 1, 1, 0.10)
+    card_grad.add_color_stop_rgba(1, 1, 1, 1, 0.04)
     ctx.set_source(card_grad)
     ctx.fill_preserve()
     ctx.set_source_rgba(1, 1, 1, 0.12)
     ctx.set_line_width(2)
     ctx.stroke()
 
-    badge = f"IDEA2CREATION • VISUAL {slot['order']:02d}"
-    ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
-    ctx.set_font_size(28)
+    ctx.rectangle(118, 136, 150, 4)
     ctx.set_source_rgb(*gold)
-    ctx.move_to(135, 160)
+    ctx.fill()
+
+    badge = f"IDEA2CREATION • PREMIUM INSERT {slot['order']:02d}"
+    ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+    ctx.set_font_size(26)
+    ctx.set_source_rgb(*gold)
+    ctx.move_to(118, 170)
     ctx.show_text(badge)
 
-    chapter_label = 'Appendices' if slot['chapter'] == 10 else f"Chapter {slot['chapter']}"
+    chapter_label = 'Appendices' if slot['chapter'] == 10 else f"Chapter {slot['chapter']} • Growth System"
     ctx.set_font_size(22)
     ctx.set_source_rgba(1, 1, 1, 0.78)
-    ctx.move_to(135, 205)
+    ctx.move_to(118, 214)
     ctx.show_text(chapter_label)
 
     ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
-    title_lines = wrap_text(ctx, slot['title'], 830, 62)
-    y = 290
+    title_lines = wrap_text(ctx, slot['title'], 810, 58)
+    y = 292
     ctx.set_source_rgb(1, 1, 1)
     for line in title_lines[:3]:
-        ext = ctx.text_extents(line)
-        ctx.move_to(135, y)
+        ctx.move_to(118, y)
         ctx.show_text(line)
-        y += 76
+        y += 72
 
     ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
-    subtitle_lines = wrap_text(ctx, slot['subtitle'], 790, 28)
-    y += 10
-    ctx.set_source_rgba(1, 1, 1, 0.86)
+    subtitle_lines = wrap_text(ctx, slot['subtitle'], 780, 27)
+    y += 6
+    ctx.set_source_rgba(1, 1, 1, 0.88)
     for line in subtitle_lines[:4]:
-        ctx.move_to(135, y)
+        ctx.move_to(118, y)
         ctx.show_text(line)
-        y += 38
+        y += 36
 
-    # Right-side strategy panels
-    labels = ['System design', 'Execution flow', 'Market leverage']
-    for i, label in enumerate(labels):
-        px = 1130
-        py = 165 + i * 145
-        rounded_rect(ctx, px, py, 330, 108, 22)
-        panel = cairo.LinearGradient(px, py, px + 330, py + 108)
-        panel.add_color_stop_rgba(0, accent[0], accent[1], accent[2], 0.18)
-        panel.add_color_stop_rgba(1, 1, 1, 1, 0.04)
+    labels = ['Offer design', 'AI workflow', 'Revenue motion']
+    sublabels = [
+        'Sharper structure for a more premium product experience.',
+        'Connected systems that move from idea to execution.',
+        'Positioning built to support sales, delivery, and scale.',
+    ]
+    for i, (label, sublabel) in enumerate(zip(labels, sublabels)):
+        px = 1098
+        py = 462 + i * 86
+        rounded_rect(ctx, px, py, 388, 68, 20)
+        panel = cairo.LinearGradient(px, py, px + 388, py + 68)
+        panel.add_color_stop_rgba(0, accent[0], accent[1], accent[2], 0.16)
+        panel.add_color_stop_rgba(1, 1, 1, 1, 0.03)
         ctx.set_source(panel)
         ctx.fill_preserve()
         ctx.set_source_rgba(1, 1, 1, 0.16)
-        ctx.set_line_width(1.5)
+        ctx.set_line_width(1.2)
         ctx.stroke()
-
-        ctx.arc(px + 36, py + 38, 12, 0, 2 * math.pi)
+        ctx.arc(px + 28, py + 24, 8, 0, 2 * math.pi)
         ctx.set_source_rgb(*gold)
         ctx.fill()
         ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
-        ctx.set_font_size(26)
+        ctx.set_font_size(22)
         ctx.set_source_rgb(1, 1, 1)
-        ctx.move_to(px + 65, py + 47)
+        ctx.move_to(px + 48, py + 28)
         ctx.show_text(label)
         ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
-        ctx.set_font_size(19)
-        ctx.set_source_rgba(1, 1, 1, 0.75)
-        ctx.move_to(px + 65, py + 78)
-        ctx.show_text('Premium visual break tied to the surrounding chapter content.')
+        ctx.set_font_size(15)
+        ctx.set_source_rgba(1, 1, 1, 0.76)
+        ctx.move_to(px + 48, py + 50)
+        ctx.show_text(sublabel)
 
     ctx.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
     ctx.set_font_size(18)
     ctx.set_source_rgba(1, 1, 1, 0.72)
-    ctx.move_to(132, 842)
-    ctx.show_text('Sellable interior design pass • balanced visual pacing • rebuilt from source')
+    ctx.move_to(118, 842)
+    ctx.show_text('Premium ebook art direction • AI systems • digital offer positioning • rebuilt from source')
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     surface.write_to_png(str(out_path))
@@ -385,16 +439,31 @@ def build_html(blocks: List[Dict[str, Any]], slots: List[Dict[str, Any]]) -> str
         body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #172033; background: #f5f7fb; }
         .cover, .toc, .chapter-open { page-break-after: always; }
         .cover {
+            position: relative; overflow: hidden;
             min-height: 10in; display: flex; flex-direction: column; justify-content: center;
-            padding: 0.9in; color: white;
-            background: radial-gradient(circle at top right, rgba(255,255,255,.16), transparent 25%), linear-gradient(135deg, #14203b, #3259a8 58%, #61b5e9);
+            padding: 0.85in; color: white;
+            background: radial-gradient(circle at 15% 18%, rgba(255,255,255,.16), transparent 24%), radial-gradient(circle at 82% 18%, rgba(241,201,98,.22), transparent 18%), linear-gradient(135deg, #10192f, #24488c 54%, #56a8dc);
         }
-        .cover-kicker { font: 700 13px/1.2 Arial, sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: #f3ca6a; }
-        .cover h1 { font: 700 34px/1.08 Arial, sans-serif; margin: 18px 0 14px; max-width: 8in; }
-        .cover p { font-size: 15px; line-height: 1.65; max-width: 6.8in; margin: 0 0 12px; }
-        .cover-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .cover::before {
+            content: ''; position: absolute; inset: 0.42in; border-radius: 28px;
+            border: 1px solid rgba(255,255,255,.14); background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+        }
+        .cover::after {
+            content: ''; position: absolute; right: -0.5in; bottom: -0.6in; width: 4.8in; height: 4.8in; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.14); box-shadow: 0 0 0 32px rgba(255,255,255,.04), 0 0 0 74px rgba(255,255,255,.03);
+        }
+        .cover > * { position: relative; z-index: 1; }
+        .cover-kicker { font: 700 12px/1.2 Arial, sans-serif; letter-spacing: 0.25em; text-transform: uppercase; color: #f3ca6a; }
+        .cover-rule { width: 1.5in; height: 4px; background: linear-gradient(90deg, #f3ca6a, rgba(243,202,106,.15)); border-radius: 999px; margin: 14px 0 18px; }
+        .cover h1 { font: 700 36px/1.05 Arial, sans-serif; margin: 0 0 14px; max-width: 7.2in; }
+        .cover p { font-size: 15px; line-height: 1.68; max-width: 6.3in; margin: 0 0 12px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 6.1in; margin-top: 16px; }
+        .cover-card { border: 1px solid rgba(255,255,255,.16); border-radius: 18px; padding: 14px 16px; background: rgba(7,17,34,.24); }
+        .cover-card strong { display: block; font: 700 12px Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #f3ca6a; margin-bottom: 8px; }
+        .cover-card span { font-size: 13px; line-height: 1.55; display: block; }
+        .cover-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; max-width: 6.5in; }
         .cover-badge { border: 1px solid rgba(255,255,255,.22); padding: 10px 14px; border-radius: 999px; font: 600 12px Arial, sans-serif; background: rgba(255,255,255,.08); }
-        .cover-footer { margin-top: 28px; font: 500 12px Arial, sans-serif; opacity: .82; }
+        .cover-footer { margin-top: 26px; font: 500 12px Arial, sans-serif; opacity: .82; }
         .toc { background: white; min-height: 10in; padding: 0.4in 0; }
         .toc h2 { font: 700 28px Arial, sans-serif; margin: 0 0 18px; color: #172033; }
         .toc-grid { border-top: 3px solid #3158a7; padding-top: 12px; }
@@ -402,13 +471,23 @@ def build_html(blocks: List[Dict[str, Any]], slots: List[Dict[str, Any]]) -> str
         .toc-item .dots { flex: 1; border-bottom: 1px dotted #9eb2d0; transform: translateY(-2px); }
         .toc-note { margin-top: 20px; color: #4b5a77; font-size: 13px; }
         .chapter-open {
+            position: relative; overflow: hidden;
             min-height: 10in; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;
-            padding: 0.65in; color: white; background: linear-gradient(150deg, #12203d, #294d93 60%, #63b4e8);
+            padding: 0.6in; color: white; background: linear-gradient(150deg, #0f1930, #224687 60%, #59aadb);
         }
-        .chapter-open .eyebrow { font: 700 12px Arial, sans-serif; text-transform: uppercase; letter-spacing: .2em; color: #f4cf72; }
-        .chapter-open h2 { font: 700 30px/1.1 Arial, sans-serif; margin: 0; }
-        .chapter-open p { margin: 0; font-size: 15px; line-height: 1.6; max-width: 6.7in; }
-        .chapter-open img { width: 100%; border-radius: 18px; margin-top: 14px; }
+        .chapter-open::before {
+            content: ''; position: absolute; inset: 0.38in; border-radius: 26px; border: 1px solid rgba(255,255,255,.14);
+            background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+        }
+        .chapter-open > * { position: relative; z-index: 1; }
+        .chapter-open .eyebrow { font: 700 12px Arial, sans-serif; text-transform: uppercase; letter-spacing: .22em; color: #f4cf72; }
+        .chapter-open h2 { font: 700 30px/1.08 Arial, sans-serif; margin: 0; max-width: 6.5in; }
+        .chapter-open p { margin: 0; font-size: 15px; line-height: 1.62; max-width: 6.2in; }
+        .chapter-open .chapter-open-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 18px; align-items: end; }
+        .chapter-open .chapter-open-copy { display: flex; flex-direction: column; gap: 14px; }
+        .chapter-open .chapter-open-panel { border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 16px; background: rgba(9,18,37,.26); }
+        .chapter-open .chapter-open-panel strong { display: block; font: 700 12px Arial, sans-serif; text-transform: uppercase; letter-spacing: .14em; color: #f4cf72; margin-bottom: 8px; }
+        .chapter-open img { width: 100%; border-radius: 18px; margin-top: 10px; box-shadow: 0 18px 42px rgba(7, 17, 34, .28); }
         .chapter-body { background: white; padding-top: 10px; }
         h1.section-title { font: 700 26px Arial, sans-serif; color: #17315d; margin: 36px 0 14px; page-break-before: always; }
         h2 { font: 700 20px Arial, sans-serif; color: #1d3767; margin: 30px 0 12px; }
@@ -433,11 +512,12 @@ def build_html(blocks: List[Dict[str, Any]], slots: List[Dict[str, Any]]) -> str
     parts.append("</style></head><body>")
 
     parts.append("<section class='cover'>")
-    parts.append("<div class='cover-kicker'>The Self Made Money Blueprint</div>")
-    parts.append("<h1>Idea2Creation: the rebuilt premium edition for turning ideas into automated digital offers.</h1>")
-    parts.append("<p>This final sellable ebook edition has been rebuilt from recovered source files and refreshed with a balanced visual system throughout the interior so the product feels more complete, more credible, and easier to move through.</p>")
-    parts.append("<p>Inside you’ll find the complete operating model for moving from idea, to build, to sales, to delivery, to growth using OpenClaw-style agent workflows and practical launch structure.</p>")
-    parts.append("<div class='cover-badges'><span class='cover-badge'>Premium interior design pass</span><span class='cover-badge'>36 visual inserts</span><span class='cover-badge'>Chapter-based pacing</span><span class='cover-badge'>Launch-ready PDF refresh</span></div>")
+    parts.append("<div class='cover-kicker'>The Self Made Money Blueprint</div><div class='cover-rule'></div>")
+    parts.append("<h1>Idea2Creation — premium rebuilt edition for turning raw ideas into launch-ready digital products.</h1>")
+    parts.append("<p>This final sellable edition has been rebuilt from recovered source files and refined with a stronger interior art direction so the ebook feels more premium, more coherent, and more credible at delivery.</p>")
+    parts.append("<p>Inside is a full operating model for moving from idea, to validation, to build, to sales, to fulfillment, to growth using OpenClaw-style agent workflows and digital offer structure.</p>")
+    parts.append("<div class='cover-meta'><div class='cover-card'><strong>What this delivers</strong><span>Strategy, workflows, chapter pacing, and visual reinforcement built to make the product feel complete instead of text-heavy.</span></div><div class='cover-card'><strong>Why this version matters</strong><span>It presents better as a paid product, reads cleaner, and gives the buyer more visual relief as they move through the system.</span></div></div>")
+    parts.append("<div class='cover-badges'><span class='cover-badge'>Premium interior design pass</span><span class='cover-badge'>37 visual inserts</span><span class='cover-badge'>Chapter-based pacing</span><span class='cover-badge'>Launch-ready PDF refresh</span></div>")
     parts.append("<div class='cover-footer'>Prepared for Poly Mintman • Final ebook refresh</div>")
     parts.append("</section>")
 
@@ -455,10 +535,10 @@ def build_html(blocks: List[Dict[str, Any]], slots: List[Dict[str, Any]]) -> str
                 opener_slot = slot_map.get(idx)
                 kicker = 'Appendices' if chap == 10 else f'Chapter {chap}'
                 summary = summarize_after(blocks, idx)
-                parts.append(f"<section class='chapter-open' id='{block['id']}'><div class='eyebrow'>{kicker}</div><h2>{html.escape(block['text'])}</h2><p>{html.escape(summary)}</p>")
+                parts.append(f"<section class='chapter-open' id='{block['id']}'><div class='chapter-open-grid'><div class='chapter-open-copy'><div class='eyebrow'>{kicker}</div><h2>{html.escape(block['text'])}</h2><p>{html.escape(summary)}</p><div class='chapter-open-panel'><strong>Chapter focus</strong>{html.escape('This section sharpens the reader’s understanding, moves the system forward, and keeps the book feeling like a premium guided framework instead of a raw draft.')}</div></div><div>")
                 if opener_slot:
                     parts.append(f"<img src='{opener_slot['image_rel']}' alt='{html.escape(opener_slot['title'])}'>")
-                parts.append("</section><div class='chapter-body'>")
+                parts.append("</div></div></section><div class='chapter-body'>")
                 chapter_open_done.add(chap)
             parts.append(f"<h1 class='section-title'>{html.escape(block['text'])}</h1>")
             continue
