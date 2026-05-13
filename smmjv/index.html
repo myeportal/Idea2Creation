@@ -234,6 +234,8 @@
     .hero-visual {
       overflow: hidden;
       position: relative;
+      display: flex;
+      flex-direction: column;
       border-radius: var(--radius-xl);
       border: 1px solid var(--line);
       background: var(--panel-strong);
@@ -247,12 +249,10 @@
     }
 
     .hero-overlay {
-      position: absolute;
-      inset: auto 18px 18px 18px;
+      margin: 0;
       padding: 18px;
-      border-radius: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       background: rgba(6,11,20,0.78);
-      border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(16px);
     }
 
