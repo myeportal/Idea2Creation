@@ -296,10 +296,13 @@
       max-width: 920px;
     }
 
-    .video-shell iframe {
+    .video-shell iframe,
+    .video-shell video {
       width: 100%;
       height: 100%;
       border: 0;
+      display: block;
+      object-fit: cover;
     }
 
     .video-note {
@@ -527,22 +530,6 @@
       </div>
     </section>
 
-    <section class="video-section" id="video">
-      <div class="container">
-        <div class="video-wrap">
-          <div class="video-head">
-            <span class="eyebrow">Top-center VSL / demo slot</span>
-            <h2>Drop your launch video here and let the splash page sell the funnel for you.</h2>
-            <p class="section-copy">This embed is intentionally easy to edit. Replace the YouTube URL in the page script with your real VSL, demo, or affiliate recruitment video.</p>
-          </div>
-          <div class="video-shell">
-            <iframe id="youtube-slot" src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" title="The Selfmademoney Plan video slot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-          <div class="video-note">Top-center VSL placement built in for your main sales or JV recruitment video.</div>
-        </div>
-      </div>
-    </section>
-
     <section>
       <div class="container">
         <div class="callout-grid">
@@ -598,6 +585,25 @@
             <li>The AI + MMO + business-op crossover expands who can promote it and who can buy it.</li>
             <li>The page looks like a premium monetization system instead of another recycled “ebook with hype” offer.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="video">
+      <div class="container">
+        <div class="video-wrap">
+          <div class="video-head">
+            <span class="eyebrow">Mid-funnel demo slot</span>
+            <h2>Let the video deepen belief right after the commission math lands.</h2>
+            <p class="section-copy">This mid-page placement works better for affiliate traffic: first show the money, then show the visual story that helps them feel the funnel, the product, and the white-label angle more clearly.</p>
+          </div>
+          <div class="video-shell">
+            <video controls playsinline preload="metadata" aria-label="The Selfmademoney Plan mid-funnel promo video">
+              <source src="media/selfmademoneyplan-mid-promo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-note">Mid-page video placement now wired to the supplied MP4 for a stronger affiliate recruitment flow.</div>
         </div>
       </div>
     </section>
