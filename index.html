@@ -436,6 +436,18 @@
       border-top: 1px solid var(--line);
     }
 
+    .site-closer-toggle,.site-closer-send{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:14px 18px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;box-shadow:0 16px 34px rgba(65,84,217,.32)}
+    .site-closer-toggle{position:fixed;right:18px;bottom:18px;z-index:90}
+    .site-closer{position:fixed;right:18px;bottom:84px;z-index:89;width:min(390px,calc(100vw - 24px));display:none;border:1px solid var(--line);border-radius:24px;background:rgba(11,24,48,.96);box-shadow:var(--shadow);overflow:hidden}
+    .site-closer.open{display:block}
+    .site-closer-header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .site-closer-header p,.site-closer-note{color:var(--muted);font-size:.9rem}
+    .site-closer-close{border:0;background:transparent;color:var(--muted);font-size:1.2rem;cursor:pointer}
+    .site-closer-body{padding:16px 18px;display:grid;gap:12px;max-height:min(72vh,620px);overflow:auto}
+    .site-closer-messages{display:grid;gap:10px}.site-closer-msg{padding:12px 14px;border-radius:16px;font-size:.95rem;line-height:1.5}.site-closer-msg.bot{background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.2)}.site-closer-msg.user{background:rgba(255,255,255,.05);border:1px solid var(--line)}
+    .site-closer-input-wrap{display:grid;grid-template-columns:1fr auto;gap:10px}.site-closer-input{width:100%;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);font:inherit}
+    .site-closer-options,.site-closer-actions{display:flex;flex-wrap:wrap;gap:10px}.site-closer-option,.site-closer-primary,.site-closer-secondary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:10px 14px;font-weight:800;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);cursor:pointer}.site-closer-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;border:0}
+
     .progress-bar {
       position: fixed;
       top: 0;
@@ -762,6 +774,27 @@
     </section>
   </main>
 
+  <button class="site-closer-toggle" id="site-closer-toggle" type="button">Need help choosing?</button>
+  <aside class="site-closer" id="site-closer" aria-label="Idea2Creation offer helper">
+    <div class="site-closer-header">
+      <div>
+        <strong>Idea2Creation Offer Helper</strong>
+        <p>Type what you want most and I’ll point you to the best starting path.</p>
+      </div>
+      <button class="site-closer-close" id="site-closer-close" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="site-closer-body">
+      <div class="site-closer-messages" id="site-closer-messages"></div>
+      <div class="site-closer-input-wrap">
+        <input class="site-closer-input" id="site-closer-input" type="text" placeholder="What are you trying to build?" />
+        <button class="site-closer-send" id="site-closer-send" type="button">Send</button>
+      </div>
+      <div class="site-closer-options" id="site-closer-options"></div>
+      <div class="site-closer-actions" id="site-closer-actions"></div>
+      <div class="site-closer-note">Start small with $27, take the main path at $318, or go premium at $786 if you want the deepest setup.</div>
+    </div>
+  </aside>
+
   <footer class="footer">
     <div class="container">
       <p>© 2026 Idea2Creation. All rights reserved.</p>
@@ -771,5 +804,6 @@
 
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
   <script src="sales_page.js"></script>
+  <script src="site-closer.js"></script>
 </body>
 </html>
