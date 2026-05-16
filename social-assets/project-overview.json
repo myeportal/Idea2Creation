@@ -1,0 +1,40 @@
+{
+  "repo": "Idea2Creation",
+  "title": "Idea2Creation",
+  "tag": "Idea-to-Business Funnel",
+  "accent": "#60a5fa",
+  "accent2": "#22c55e",
+  "hook": "A polished sales and delivery system that helps move buyers from raw idea to packaged AI-powered execution and productization.",
+  "sections": [
+    [
+      "01",
+      "Core Offer",
+      "Sales page, ebook/product fulfillment, secure Stripe flow, thank-you routing, and conversion-minded site positioning."
+    ],
+    [
+      "02",
+      "Problem Solved",
+      "Bridges the gap between having an idea and knowing how to turn it into a viable digital product or business path."
+    ],
+    [
+      "03",
+      "Key Assets",
+      "Secure checkout, protected download flow, refreshed sales pages, JV support, and a site closer to improve conversions."
+    ],
+    [
+      "04",
+      "Ideal Buyer",
+      "Beginners, creators, side hustlers, and entrepreneurs who need structure and momentum around their ideas."
+    ],
+    [
+      "05",
+      "Growth Path",
+      "Content -> sales page -> checkout -> ebook/product delivery -> upsell into deeper implementation support."
+    ],
+    [
+      "06",
+      "Next Expansion",
+      "Run paid tests, validate download completion end-to-end, and add stronger case-study or proof content."
+    ]
+  ]
+}
