@@ -150,6 +150,22 @@
       max-width: 700px;
       margin-bottom: 26px;
     }
+    .hero-inline-video {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      margin: 0 0 24px;
+      max-width: 720px;
+    }
+    .hero-inline-video video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      object-fit: cover;
+      background: #040812;
+    }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -503,6 +519,10 @@
       .btn,
       .btn-secondary { padding: 13px 18px; }
       .hero { padding: 34px 0 34px; }
+      .hero-inline-video {
+        border-radius: 22px;
+        margin-bottom: 20px;
+      }
       .hero-visual {
         display: flex;
         flex-direction: column;
@@ -551,6 +571,13 @@
           <div class="eyebrow">Idea to Creation • The Self Made Money Plan</div>
           <h1>Just tell it what to build in your own words using a secretly little known way.</h1>
           <p class="lead">Idea2Creation gives you a complete system for moving from raw idea to product, sales process, delivery, and scale using specialized AI agents and practical workflows. Instead of trying to do everything manually, you get a framework designed to help you build smarter, launch faster, and operate with far less friction.</p>
+
+          <div class="hero-inline-video">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="./selfmademoney-plan-1.png" aria-label="Idea2Creation header video">
+              <source src="./media/idea2creation-header-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
 
           <div class="hero-actions">
             <a href="#pricing" class="btn">Get Instant Access</a>
